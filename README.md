@@ -1,32 +1,34 @@
-### 说明
-不用搭环境，自己有境外的vps就行，最好是openai支持的地区的vps，下载bin里面的[执行文件](./bin/api_proxy)直接就能跑，最简单的api proxy方式，最重要的是支持SSE，让客户端请求时响应得更加迅速，也提供了golang的源码，需要定制的可以自行完善。
+> [中文说明](./README.zh.md)
+
+### description
+You don’t need to set up an environment, just have an overseas vps, preferably a vps in an area supported by openai, download the [executive file] (./bin/api_proxy) in the bin and run it directly, the simplest api proxy method, the most important The most important thing is to support SSE, so that the client can respond more quickly when requesting, and also provides the source code of golang, which can be improved by itself if it needs to be customized.
 ```sh
-./api_proxy -daemon -port 9000 # 最好开启daemon守护进程模式
+./api_proxy -daemon -port 9000 # It is best to open the daemon process mode
 ```
 
-### 使用方法
-python使用案例：
+### How to use the client
+python use cases：
 ```python
 import os
 import openai
 
 openai.api_key = YOUR-API-KEY
-openai.api_base = "http://host:port/v1" # 一定要加v1
+openai.api_base = "http://host:port/v1" # Be sure to add v1
 
 for resp in openai.ChatCompletion.create(
                                     model="gpt-3.5-turbo",
                                     messages=[
-                                      {"role": "user", "content": "冒泡排序"}
+                                      {"role": "user", "content": "Bubble Sort"}
                                     ],
-                                    stream = True): # 流式输出，支持SSE
+                                    stream = True): # Streaming output, support SSE
     if 'content' in resp.choices[0].delta:
-        print(resp.choices[0].delta.content, end="", flush=True) # flush及时打印
+        print(resp.choices[0].delta.content, end="", flush=True) # flush prints in time
 ```
-js使用案例：
-以 https://www.npmjs.com/package/chatgpt 为例
+js use case：
+Take https://www.npmjs.com/package/chatgpt as an example
 ```js
 chatApi= new gpt.ChatGPTAPI({
-    apiKey: 'sk.....:<proxy_key写这里>',
-    apiBaseUrl: "http://host:port", // 传递代理地址
+    apiKey: 'sk.....:<proxy_key write here>',
+    apiBaseUrl: "http://host:port", // delivery proxy address
 });
 ```
