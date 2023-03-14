@@ -22,8 +22,7 @@ for resp in openai.ChatCompletion.create(
     if 'content' in resp.choices[0].delta:
         print(resp.choices[0].delta.content, end="", flush=True) # flush及时打印
 ```
-js使用案例：
-以 https://www.npmjs.com/package/chatgpt 为例
+js使用案例，以 https://www.npmjs.com/package/chatgpt 为例：
 ```js
 chatApi= new gpt.ChatGPTAPI({
     apiKey: 'sk.....:<proxy_key写这里>',

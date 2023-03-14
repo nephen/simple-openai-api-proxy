@@ -7,7 +7,7 @@ You don’t need to set up an environment, just have an overseas vps, preferably
 ```
 
 ### How to use the client
-python use cases：
+Python use cases：
 ```python
 import os
 import openai
@@ -24,8 +24,7 @@ for resp in openai.ChatCompletion.create(
     if 'content' in resp.choices[0].delta:
         print(resp.choices[0].delta.content, end="", flush=True) # flush prints in time
 ```
-js use case：
-Take https://www.npmjs.com/package/chatgpt as an example
+JS use case, Take https://www.npmjs.com/package/chatgpt as an example
 ```js
 chatApi= new gpt.ChatGPTAPI({
     apiKey: 'sk.....:<proxy_key write here>',
