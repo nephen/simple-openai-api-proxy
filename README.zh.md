@@ -29,3 +29,6 @@ chatApi= new gpt.ChatGPTAPI({
     apiBaseUrl: "http://host:port", // 传递代理地址
 });
 ```
+
+### 支持
+![](https://nephen-blog.oss-cn-beijing.aliyuncs.com/post/20230315130826.png)
