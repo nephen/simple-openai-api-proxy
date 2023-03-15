@@ -31,3 +31,6 @@ chatApi= new gpt.ChatGPTAPI({
     apiBaseUrl: "http://host:port", // delivery proxy address
 });
 ```
+
+### Suport
+![](https://nephen-blog.oss-cn-beijing.aliyuncs.com/post/20230315130826.png)
