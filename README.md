@@ -24,12 +24,19 @@ for resp in openai.ChatCompletion.create(
     if 'content' in resp.choices[0].delta:
         print(resp.choices[0].delta.content, end="", flush=True) # flush prints in time
 ```
+
 JS use case, Take https://www.npmjs.com/package/chatgpt as an example
 ```js
 chatApi= new gpt.ChatGPTAPI({
     apiKey: 'sk.....:<proxy_key write here>',
     apiBaseUrl: "http://host:port", // delivery proxy address
 });
+```
+
+(Recommend:)An example of using [ChatGPT-Next-Web](https://github.com/Yidadaa/ChatGPT-Next-Web) on the server, after setting the key, you can set the code password to access, and the api uses the current proxy, which is very easy to use, refer to the webpage https://gpt.nephen.cn/.
+```sh
+docker pull nephen2023/chatgpt-next-web:v1.7.1
+docker run -d -p 3000:3000 -e OPENAI_API_KEY="" -e CODE="" -e BASE_URL="ip:port" -e PROTOCOL="http" nephen2023/chatgpt-next-web:v1.7.1
 ```
 
 ### Suport
